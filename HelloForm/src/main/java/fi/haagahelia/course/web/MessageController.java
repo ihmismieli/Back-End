@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import fi.haagahelia.course.domain.Message;
 
 @Controller
-//C2 1. Hello Thymeleaf
+//C2 1. Hello Thymeleaf Homework
 public class MessageController {
 
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
