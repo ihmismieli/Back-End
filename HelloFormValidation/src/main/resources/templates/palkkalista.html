@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Server Programming with Spring Boot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table>
+<tr th:each="yksiPalkka : ${palkkalistantiedot}">
+    <td th:text="${yksiPalkka.palkanmaara}">1</td>
+    <td th:text="${yksiPalkka.tyotehtava}">Text ...</td>
+    </tr>
+</table>
+</body>
+</html>
