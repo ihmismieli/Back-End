@@ -15,7 +15,7 @@ import fi.haagahelia.course.domain.Student;
 
 @Controller
 public class MessageController {
-    // C2 2.Handling Lists
+    // C2 2.Handling Lists homework
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String listStudents(Model model) {
 
@@ -30,7 +30,7 @@ public class MessageController {
         return "hello";
     }
 
-    //C2 3. Friend List
+    //C2 3. Friend List homewoek
 
     List<String> friends = new ArrayList<>();
 
