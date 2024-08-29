@@ -13,9 +13,11 @@
     </ul>
 
 	<h1>Add new friend to list</h1>
+    <!--th:object viitaatan modelin objektiin message-->
     <form action="#" th:action="@{/index}" th:object="${message}" method="post">
     	<table>
     	<tr>
+            <!--Sidotaan name  message objektista ja tallennetaan message.name kenttään-->
     		<td>Name: <input type="text" th:field="*{name}" /></td>
         </tr>
         </table>
