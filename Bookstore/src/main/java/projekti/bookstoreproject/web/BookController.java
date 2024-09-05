@@ -1,11 +1,12 @@
 package projekti.bookstoreproject.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
 
-import ch.qos.logback.core.model.Model;
 import projekti.bookstoreproject.domain.Book;
+import projekti.bookstoreproject.domain.BookRepository;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,9 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class BookController {
+@Autowired
+private BookRepository repository;
 
-    @RequestMapping(value="/index", method = RequestMethod.GET)
-    public String listBooks (Model model){
+    @RequestMapping(value="/index")
+    public String bookList (Model model){
+        model.addAttribute("books", repository.findAll());
         return "index";
     }
     

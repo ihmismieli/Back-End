@@ -13,6 +13,7 @@ import fi.haagahelia.course.domain.StudentRepository;
 
 @SpringBootApplication
 public class StudentListApplication {
+	//logger määritys auttaa virheiden ja muiden tapahtumien seuraamisessa sovelluksen suorituksen aikana
 	private static final Logger log = LoggerFactory.getLogger(StudentListApplication.class);
 
 	public static void main(String[] args) {
@@ -20,7 +21,9 @@ public class StudentListApplication {
 	}
 	
 	@Bean
+	//kotitehtävässä tänne tallennetaan kirjoja
 	public CommandLineRunner studentDemo(StudentRepository repository) {
+		//args voi saada parametrejä
 		return (args) -> {
 			log.info("save a couple of students");
 			repository.save(new Student("John", "Johnson", "john@john.com"));

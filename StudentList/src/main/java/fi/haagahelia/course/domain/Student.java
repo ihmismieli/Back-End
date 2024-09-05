@@ -5,10 +5,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+//tekee sql create table itsestään
 @Entity
 public class Student {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+	//id:n on oltava aina long
     private Long id;
     private String firstName;
     private String lastName;
@@ -16,6 +18,7 @@ public class Student {
 
     public Student() {}
 
+	//konstruktori, jossa ei ole suoraan id
 	public Student(String firstName, String lastName, String email) {
 		super();
 		this.firstName = firstName;

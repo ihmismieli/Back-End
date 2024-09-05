@@ -29,6 +29,8 @@ public class StudentController {
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(Student student){
+        //jos studentilla tai bookilla on id, niin sava() komento päivittää,
+        //jo ei ole id:ta niin luo uuden
         repository.save(student);
         return "redirect:studentlist";
     }    
