@@ -17,10 +17,10 @@ public class BookController {
 @Autowired
 private BookRepository repository;
 
-    @RequestMapping(value="/index")
+    @RequestMapping(value="/booklist")
     public String bookList (Model model){
         model.addAttribute("books", repository.findAll());
-        return "index";
+        return "booklist";
     }
     
     @PostMapping("/index")
