@@ -25,8 +25,8 @@ public class BookstoreprojectApplication {
 	public CommandLineRunner bookDemo(BookRepository repository){
 		return (args) -> {
 			log.info("save a couple of books");
-			repository.save(new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925,  "9780743273565", 10.99));
-			repository.save(new Book("To Kill a Mockingbird", "Harper Lee", 1960, "9780061120084", 14.99));
+			repository.save(new Book("The Great Gatsby", "F. Scott Fitzgerald", "9780743273565", 1925, 10.99));			
+			repository.save(new Book("To Kill a Mockingbird", "Harper Lee", "9780061120084", 1960, 14.99));
 
 			log.info("fetch all books");
 			for (Book book : repository.findAll()) {
