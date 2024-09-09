@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import projekti.bookstoreproject.domain.Book;
 import projekti.bookstoreproject.domain.BookRepository;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -22,12 +21,17 @@ private BookRepository repository;
         model.addAttribute("books", repository.findAll());
         return "booklist";
     }
+
+    @RequestMapping(value="/add")
+    public String addBook(Model model){
+        model.addAttribute("book", new Book());
+        return "addstudent";
+    }
     
-    @PostMapping("/index")
-    public String postMethodName(@ModelAttribute Book book, Model model) {
-        //TODO: process POST request
-        
-        return "result";
+    @PostMapping("/save")
+    public String save(Book book) {
+        repository.save(book);
+        return "redirect:booklist";
     }
     
 }
