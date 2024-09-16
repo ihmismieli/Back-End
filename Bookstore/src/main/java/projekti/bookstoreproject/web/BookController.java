@@ -1,7 +1,5 @@
 package projekti.bookstoreproject.web;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +8,7 @@ import org.springframework.ui.Model;
 
 import projekti.bookstoreproject.domain.Book;
 import projekti.bookstoreproject.domain.BookRepository;
+import projekti.bookstoreproject.domain.CategoryRepository;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,10 +16,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class BookController {
+
 @Autowired
 private BookRepository repository;
 
-    @RequestMapping(value="/booklist")
+@Autowired
+private CategoryRepository cRepository;
+
+    //show all books
+    @RequestMapping(value={"/", "/booklist"})
     public String bookList (Model model){
         model.addAttribute("books", repository.findAll());
         return "booklist";
@@ -29,6 +33,8 @@ private BookRepository repository;
     @RequestMapping(value="/add")
     public String addBook(Model model){
         model.addAttribute("book", new Book());
+        //hakee kaikki tietokannassa olevat categoryt
+        model.addAttribute("categories", cRepository.findAll());
         return "addbook";
     }
     
@@ -46,8 +52,8 @@ private BookRepository repository;
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String editBook(@PathVariable("id") Long bookId, Model model){
-        Optional<Book> optionalBook = repository.findById(bookId);
-        model.addAttribute("book", optionalBook.get());
+        model.addAttribute("book", repository.findById(bookId));
+        model.addAttribute("categories", cRepository.findAll());
         return "editbook";
     }
     
