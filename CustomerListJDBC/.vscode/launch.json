@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CustomerlistApplication<customerlist>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "fi.ahlgren.customerlist.CustomerlistApplication",
+            "projectName": "customerlist",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
