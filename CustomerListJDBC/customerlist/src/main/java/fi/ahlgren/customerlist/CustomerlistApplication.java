@@ -15,24 +15,17 @@ public class CustomerlistApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(JdbcTemplate jdbcTemplate) {// (CustomerRepository customerRepository)
+	public CommandLineRunner demo(JdbcTemplate jdbcTemplate) {
 		return (args) -> {
 
-			jdbcTemplate.update("INSERT INTO customer (firstname, lastname, email) VALUES (?, ?, ?)",
+			jdbcTemplate.update("INSERT INTO customer (first_name, last_name, email) VALUES (?, ?, ?)",
 					"Anna", "Mattila", "anna@anna.fi");
-			jdbcTemplate.update("INSERT INTO customer (firstname, lastname, email) VALUES (?, ?, ?)",
+			jdbcTemplate.update("INSERT INTO customer (first_name, last_name, email) VALUES (?, ?, ?)",
 					"Milla", "Vaara", "milla@milla.fi");
-			jdbcTemplate.update("INSERT INTO customer (firstname, lastname, email) VALUES (?, ?, ?)",
+			jdbcTemplate.update("INSERT INTO customer (first_name, last_name, email) VALUES (?, ?, ?)",
 					"Juhani", "Suomi", "juhani@juhani.fi");
 
-			// Customer customer1 = new Customer("Anna", "Mattila", "anna@anna.fi");
-			// Customer customer2 = new Customer("Milla", "Vaara", "milla@milla.fi");
-			// Customer customer3 = new Customer("Juhani", "Suomi", "juhani@juhani.fi");
-
-			// repository.save(customer1);
-			// repository.save(customer2);
-			// repository.save(customer3);
-			// };
+		
 		};
 
 	}

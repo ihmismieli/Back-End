@@ -14,8 +14,8 @@
                 <th>Email</th>
             </tr>  
             <tr th:each = "customer : ${customers}">
-                <td th:text="${customer.firstname} + ' ' + ${customer.lastname}"></td>
-                <td th:text="${customer.email}"></td>		
+                <td th:text="${customer['first_name']} + ' ' + ${customer['last_name']}"></td>
+                <td th:text="${customer['email']}"></td>		
             </tr>
          </table>  	
     </div>
